@@ -1,0 +1,79 @@
+.partners
+    padding 60px 0
+    text-align center
+
+.partners__title
+    font-size 32px
+    color #333
+    margin-bottom 50px
+    text-align: center
+
+ul.splide__list
+    padding: 0 12px
+
+.partners__grid
+    display flex
+    flex-wrap nowrap
+    justify-content center
+    gap 30px
+
+.splide__track
+    padding 15px 
+
+.partners__card
+    border: 2px #e9a810 solid;
+    height: 270px
+    flex-basis calc(33.333% - 20px)
+    display flex
+    flex-direction column
+    align-items center
+    background-color #ffffff
+    border-radius 8px
+    box-shadow 0 5px 15px rgba(0, 0, 0, 0.05)
+    transition transform 0.3s, box-shadow 0.3s
+    overflow: hidden;
+    transition: all .5s;
+    background: linear-gradient(45deg, #3a6ea5, #2a333d);
+
+.partners__card:hover
+  box-shadow 4px 4px 8px 3px #3a6ea5
+  transform translateY(-5px)
+  color red
+
+.partners__card:hover .partners__logo
+    opacity 1
+
+.partners__logo
+    max-width 100%
+    height auto
+    object-fit contain
+    opacity 0.8
+    transition opacity 0.3s
+    border-radius: unset;
+    margin: auto
+
+#splide01
+    padding: 12px;
+
+
+.partners__name
+    font-size 16px
+    font-weight bold
+    color #555
+    text-align center
+
+ul.splide__pagination.splide__pagination--ltr
+    bottom: -1em;
+
+@media screen and (max-width: 768px)
+    .partners__grid
+        justify-content space-around
+        gap 20px
+    
+    .partners__card
+        flex-basis calc(50% - 10px)
+        min-width 250px
+
+@media screen and (max-width: 480px)
+    .partners__card
+        flex-basis 100%

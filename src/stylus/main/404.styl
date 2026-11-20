@@ -1,0 +1,86 @@
+section.window_win 
+    margin: 102px 0;
+
+.window
+    background-color #c0c0c0
+    border 2px solid #000
+    width 500px
+    padding 20px
+    box-shadow 5px 5px 15px rgba(0, 0, 0, 0.5)
+    position relative
+    border-radius 6px
+    margin auto
+
+.window-header
+    display flex
+    justify-content space-between
+    align-items center
+    background linear-gradient(to bottom, #0a64ad, #3b91de)
+    color #fff
+    padding 8px 12px
+    font-weight bold
+    border-radius 4px 4px 0 0
+
+.window-header img
+    height 48px
+
+.window-content
+    text-align center
+    margin-top 30px
+
+.window-content p
+    margin-bottom 20px
+    font-size 1.1em
+    color #000
+
+.buttons
+    display flex
+    justify-content space-around
+    margin-top 30px
+
+.buttons button
+    padding 15px 25px
+    font-size 1em
+    font-weight bold
+    border 2px solid #000
+    border-radius 4px
+    cursor pointer
+    transition transform 0.2s
+
+.buttons button:hover
+    transform scale(1.05)
+
+.sleep
+    background-color #f39c12
+
+.shutdown
+    background-color #e74c3c
+
+.restart
+    background-color #2ecc71
+
+.cancel
+    display block
+    margin 30px auto 0
+    padding 10px 20px
+    border 2px solid #000
+    background-color #ddd
+    color #000
+    font-weight bold
+    border-radius 4px
+    cursor pointer
+    transition background 0.3s ease
+
+.cancel:hover
+    background-color #bbb
+
+.shutdown-gif
+    display none
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height 100%
+    background #000 url("https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif") center center no-repeat
+    background-size cover
+    z-index 9999

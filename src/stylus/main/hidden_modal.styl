@@ -1,0 +1,80 @@
+h2.modal_title
+    color #3a6ea5
+    text-align center
+    font-size 1.5em
+
+.modal-backdrop
+    display none
+    position fixed
+    z-index 1000
+    left 0
+    top 0
+    width 100%
+    height 100%
+    background-color rgba(0, 0, 0, 0.7)
+    justify-content center
+    align-items center
+    transition opacity 0.3s ease-out
+    opacity 0
+
+textarea.wpcf7-form-control.wpcf7-textarea.wpcf7-validates-as-required 
+    height: 90px;
+
+span.wpcf7-list-item-label
+    font-size: .8em;
+
+.modal-content
+    background-color #fefefe
+    padding 20px
+    border-radius 8px
+    width 90%
+    max-width 400px
+    position relative
+    box-shadow 0 4px 15px rgba(0, 0, 0, 0.4)
+    transition transform 0.3s ease-out
+    transform translateY(-50px) scale(0.95)
+
+.modal-show
+    display flex
+    opacity 1
+
+.modal-show .modal-content
+    transform translateY(0) scale(1)
+    
+.close-btn
+    color #aaa
+    float right
+    font-size 28px
+    font-weight bold
+    cursor pointer
+
+.close-btn:hover
+.close-btn:focus
+    color #333
+    text-decoration none
+    cursor pointer
+
+.modal-content input
+.modal-content textarea
+    width 100%
+    padding 10px
+    margin 8px 0
+    box-sizing border-box
+    border 1px solid #ccc
+    border-radius 4px
+
+input[type="checkbox"]
+    width 20px
+
+label.form-checkbox
+    font-size .9em
+
+.modal-content button[type="submit"]
+    background-color #3a6ea5
+    color white
+    padding 10px 15px
+    border none
+    border-radius 4px
+    cursor pointer
+    font-size 16px
+    margin-top 10px

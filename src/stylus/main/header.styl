@@ -1,0 +1,179 @@
+.header
+    position fixed
+    top 0
+    left 0
+    width 100%
+    height $header-height
+    background $header-bg
+    backdrop-filter blur(10px)
+    box-shadow $header-shadow
+    z-index $zindex-fixed
+    transition $transition-base
+
+.header .container
+	max-width: 1332px
+
+a.nav-menu__link.active 
+	color #f98700;
+
+.header__inner
+    display flex
+    align-items center
+    justify-content space-between
+    height $header-height
+    gap $spacing-lg
+
+.header__logo
+    flex-shrink 0
+    width 65px
+    height auto
+
+.header__nav
+    flex 1
+
+ul#menu-header 
+	padding: 32px
+
++media-down($breakpoint-lg)
+    .header__nav
+        position fixed
+        top $header-height
+        left 0
+        width 100%
+        height calc(100vh - $header-height)
+        background $color-bg-dark
+        padding $spacing-xl $container-padding
+        transform translateX(-100%)
+        transition transform 0.3s ease
+        overflow-y auto
+
+.header__nav.active
+    transform translateX(0)
+
+.header__actions
+    display flex
+    align-items center
+    gap $spacing-md
+
++media-down($breakpoint-md)
+    .header__actions
+        display none
+
+.header__phone
+    color $color-light
+    font-weight $font-weight-semibold
+    font-size 1em
+    text-decoration none
+    transition $transition-fast
+
+.header__phone:hover
+    color $color-primary
+
++media-down($breakpoint-lg)
+    .header__phone
+        display none
+
+.header__burger
+    display none
+    flex-direction column
+    justify-content space-between
+    width 30px
+    height 24px
+    background none
+    border none
+    cursor pointer
+    padding 0
+    z-index 10
+
++media-down($breakpoint-lg)
+    .header__burger
+        display flex
+
+.header__burger span
+    display block
+    width 100%
+    height 3px
+    background $color-light
+    border-radius 2px
+    transition $transition-fast
+
+.header__burger.active span:nth-child(1)
+    transform translateY(10.5px) rotate(45deg)
+
+.header__burger.active span:nth-child(2)
+    opacity 0
+
+.header__burger.active span:nth-child(3)
+    transform translateY(-10.5px) rotate(-45deg)
+
+.logo
+    display flex
+    align-items center
+    text-decoration none
+    line-height 1
+    width 100%
+    height 100%
+
+.logo__image
+    width 100%
+    height auto
+    max-width 200px
+    object-fit contain
+    transition $transition-fast
+
++media-down($breakpoint-md)
+    .logo__image
+        height 40px
+
+.logo:hover .logo__image
+    opacity 0.8
+
+.nav-menu
+    reset-list()
+    display flex
+    align-items center
+    gap $spacing-lg
+
++media-down($breakpoint-lg)
+    .nav-menu
+        flex-direction column
+        align-items flex-start
+        gap $spacing-md
+
+.nav-menu__item
+    position relative
+
+.nav-menu__link
+    color $color-light
+    font-weight $font-weight-medium
+    font-size .9em
+    text-decoration none
+    padding $spacing-xs 0
+    transition $transition-fast
+    position relative
+
+.nav-menu__link::after
+    content ""
+    position absolute
+    bottom 0
+    left 0
+    width 0
+    height 2px
+    background $color-primary
+    transition width 0.3s ease
+
+.nav-menu__link:hover
+    color $color-primary
+
+.nav-menu__link:hover::after
+    width 100%
+
++media-down($breakpoint-lg)
+    .nav-menu__link
+        font-size $font-size-lg
+        padding $spacing-sm 0
+
+.header.scrolled
+    background rgba(10, 10, 10, 0.98)
+    box-shadow 0 4px 20px rgba(0, 0, 0, 0.5)
+

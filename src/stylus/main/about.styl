@@ -1,0 +1,164 @@
+.about
+    background $color-bg
+
+.about__content
+    display grid
+    grid-template-columns 1fr 1fr
+    gap $spacing-xxxl
+    align-items center
+
+.about__content:nth-child(odd)
+    direction: rtl;
+
++media-down($breakpoint-lg)
+    .about__content
+        grid-template-columns 1fr
+        gap $spacing-xl
+
+.about__image
+    position relative
+    border-radius $border-radius-lg
+    overflow hidden
+    box-shadow $shadow-lg
+
+.about__image img
+    width 100%
+    height auto
+    display block
+    transition transform 0.5s ease
+
+.about__image:hover img
+    transform scale(1.05)
+
+.about__badge
+    position absolute
+    bottom $spacing-lg
+    right $spacing-lg
+    background $color-primary
+    color $color-light
+    padding $spacing-md $spacing-lg
+    border-radius $border-radius
+    text-align center
+    box-shadow $shadow-lg
+
++media-down($breakpoint-sm)
+    .about__badge
+        bottom $spacing-md
+        right $spacing-md
+        padding $spacing-sm $spacing-md
+
+.about__badge-number
+    display block
+    font-size 2rem
+    font-weight $font-weight-black
+    line-height 1
+
++media-down($breakpoint-sm)
+    .about__badge-number
+        font-size 1.5rem
+
+.about__badge-text
+    display block
+    font-size $font-size-sm
+    margin-top $spacing-xs
+    opacity 0.9
+
+.about__text
+
++media-down($breakpoint-lg)
+    .about__text
+        order -1
+
+.about__text.animated:nth-child(odd)
+    direction: ltr;
+
+.about__subtitle
+    font-size $font-size-h3
+    font-weight $font-weight-bold
+    color $color-heading
+    margin-bottom $spacing-lg
+
++media-down($breakpoint-md)
+    .about__subtitle
+        font-size $font-size-h4
+
+.about__description
+    font-size $font-size-base
+    color $color-text-light
+    line-height 1.8
+    margin-bottom $spacing-md
+
+.about__features
+    display grid
+    grid-template-columns: repeat(auto-fit, minmax(sizes(about_win), 1fr));
+    gap $spacing-lg
+    margin $spacing-xl 0
+
++media-down($breakpoint-md)
+    .about__features
+        // grid-template-columns 1fr
+        gap $spacing-md
+
+.about__feature
+    display flex
+    gap $spacing-md
+    padding $spacing-md
+    background $color-bg-gray
+    border-radius $border-radius
+    border-left 3px solid $color-primary
+    transition $transition-base
+
+.about__feature:hover
+    transform translateX(5px)
+    box-shadow $shadow
+
+.about__feature-icon
+    flex-shrink 0
+    width 48px
+    height 48px
+    display flex
+    align-items center
+    justify-content center
+    background $color-light
+    border-radius $border-radius
+    color $color-primary
+
+.about__feature-icon svg
+    width 32px
+    height 32px
+
+.about__feature-content
+    flex 1
+
+.about__feature-title
+    font-size $font-size-base
+    font-weight $font-weight-semibold
+    color $color-heading
+    margin-bottom $spacing-xs
+
+.about__feature-desc
+    font-size $font-size-sm
+    color $color-text-light
+    line-height 1.5
+
+.about__actions
+    display flex
+    gap $spacing-md
+    margin-top $spacing-xl
+
++media-down($breakpoint-sm)
+    .about__actions
+        flex-direction column
+
+.about__content > *
+    opacity 0
+
+.about__content > *.animated
+    opacity 1
+
+.about__image.animated
+    slide-in-left(0.8s)
+
+.about__text.animated
+    slide-in-right(0.8s, 0.2s)
+

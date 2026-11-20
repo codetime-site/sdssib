@@ -1,0 +1,61 @@
+h3.partners_slide__overlay_title {
+    font-size: 1.5em;
+    color: #f9fafcff; /* Используем последнее значение цвета */
+}
+
+p.partners_slide__text {
+    margin: unset;
+    color: #fff; /* Из стилей оверлея */
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 4px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease 0.1s;
+}
+
+.partners_slide__card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    height: 200px;
+}
+
+.partners_slide__logo {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.partners_slide__card:hover .partners_slide__logo {
+    transform: scale(1.05);
+}
+
+.partners_slide__overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Из стилей оверлея */
+    background: linear-gradient(353deg, #d30909bf, #000000); /* Используем последнее градиентное значение */
+    padding: 5px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30%);
+    transition: all 0.4s ease;
+}
+
+.partners_slide__card:hover .partners_slide__overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.partners_slide__card:hover .partners_slide__text {
+    opacity: 1;
+    transform: translateY(0);
+}

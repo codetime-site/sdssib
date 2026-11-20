@@ -1,0 +1,181 @@
+.hero
+    position relative
+    min-height 100vh
+    display flex
+    align-items center
+    justify-content center
+    padding $spacing-xxxl 0
+    overflow hidden
+    background $color-bg-dark
+
++media-down($breakpoint-md)
+    .hero
+        min-height 80vh
+        padding 6em 0
+
+.hero__overlay
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    background linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(220, 0, 0, 0.1) 100%)
+    z-index 1
+
+.hero__background
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    background url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(220,0,0,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>')
+    opacity 0.3
+    z-index 0
+    animation float 6s ease-in-out infinite
+
+.hero__content
+    position relative
+    z-index 2
+    text-align center
+    max-width 900px
+    margin 0 auto
+
+.hero__title
+    font-size 3.5rem
+    font-weight $font-weight-black
+    color $color-light
+    margin-bottom $spacing-lg
+    line-height 1.2
+    fade-in(0.8s)
+
++media-down($breakpoint-lg)
+    .hero__title
+        font-size 2.5rem
+
++media-down($breakpoint-md)
+    .hero__title
+        font-size 2rem
+
+.hero__title-accent
+    color $color-primary
+    display block
+
+.hero__subtitle
+    font-size $font-size-lg
+    color $color-light
+    margin-bottom $spacing-xl
+    line-height 1.6
+    fade-in(0.8s, 0.2s)
+
++media-down($breakpoint-md)
+    .hero__subtitle
+        font-size $font-size-base
+
+.hero__actions
+    display flex
+    gap $spacing-md
+    justify-content center
+    margin-bottom $spacing-xxxl
+    fade-in(0.8s, 0.4s)
+
++media-down($breakpoint-sm)
+    .hero__actions
+        flex-direction column
+        align-items center
+
+.hero__features
+    display grid
+    grid-template-columns repeat(3, 1fr)
+    gap $spacing-lg
+    margin-top $spacing-xxxl
+    fade-in(0.8s, 0.6s)
+
++media-down($breakpoint-md)
+    .hero__features
+        grid-template-columns 1fr
+        gap $spacing-md
+
+.hero__feature
+    display flex
+    align-items center
+    gap $spacing-md
+    padding $spacing-md
+    background rgba(255, 255, 255, 0.05)
+    border 1px solid rgba(220, 0, 0, 0.2)
+    border-radius $border-radius-lg
+    transition $transition-base
+
+.hero__feature:hover
+    background rgba(255, 255, 255, 0.08)
+    border-color $color-primary
+    transform translateY(-5px)
+
++media-down($breakpoint-md)
+    .hero__feature
+        justify-content center
+
+.hero__feature-icon
+    flex-shrink 0
+    width 50px
+    height 50px
+    display flex
+    align-items center
+    justify-content center
+    color $color-primary
+
+.hero__feature-icon svg
+    width 100%
+    height 100%
+
+.hero__feature-text
+    text-align left
+
++media-down($breakpoint-md)
+    .hero__feature-text
+        text-align center
+
+.hero__feature-title
+    font-size $font-size-lg
+    font-weight $font-weight-bold
+    color $color-light
+    margin-bottom $spacing-xs
+
+.hero__feature-desc
+    font-size $font-size-sm
+    color $color-gray-lighter
+
+.hero__scroll
+    position absolute
+    bottom $spacing-xl
+    left 50%
+    transform translateX(-50%)
+    z-index 2
+
++media-down($breakpoint-md)
+    .hero__scroll
+        display none
+
+.hero__scroll-link
+    display flex
+    flex-direction column
+    align-items center
+    gap $spacing-xs
+    color $color-light
+    text-decoration none
+    font-size $font-size-sm
+    transition $transition-fast
+
+.hero__scroll-link:hover
+    color $color-primary
+
+.hero__scroll-link:hover svg
+    transform translateY(5px)
+
+.hero__scroll-link svg
+    transition $transition-base
+
+@keyframes float
+    0%, 100%
+        transform translateY(0)
+    50%
+        transform translateY(-20px)

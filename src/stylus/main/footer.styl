@@ -1,0 +1,154 @@
+.footer
+    background $footer-bg
+    color $footer-color
+    padding $footer-padding
+
+span.wpcf7-list-item-label 
+    color: rgb(12, 4, 4);
+
+
+.footer__content
+    display grid
+    grid-template-columns 2fr 1fr 1fr 1.5fr
+    gap $spacing-xl
+    padding-bottom $spacing-xl
+    border-bottom 1px solid rgba(255, 255, 255, 0.1)
+    opacity 0
+
+.footer__content.animated
+    opacity 1
+
+.footer__column:first-child
+    /* Стили для десктопа */
+
+.footer__logo
+    margin-bottom $spacing-md
+    width 65px
+    height auto
+
+.footer__logo .logo__text
+    color $color-primary
+
+.footer__logo .logo__subtext
+    color $color-light
+
+.footer__description
+    font-size $font-size-sm
+    color rgba(255, 255, 255, 0.7)
+    line-height 1.6
+    margin-bottom $spacing-md
+
+.footer__social
+    display flex
+    gap $spacing-sm
+
+.footer__social-link
+    width 40px
+    height 40px
+    display flex
+    align-items center
+    justify-content center
+    background rgba(255, 255, 255, 0.1)
+    border-radius $border-radius
+    color $color-light
+    transition $transition-base
+
+.footer__social-link:hover
+    background $color-primary
+    transform translateY(-3px)
+
+.footer__social-link svg
+    width 20px
+    height 20px
+
+.footer__title
+    font-size $font-size-lg
+    font-weight $font-weight-bold
+    color $color-light
+    margin-bottom $spacing-md
+
+ul
+    /* assumes reset-list() logic is applied via external mixin or base styles */
+    list-style-type: none
+
+.footer__menu a
+    color rgba(255, 255, 255, 0.7)
+    text-decoration none
+    font-size $font-size-base
+    transition $transition-fast
+    display inline-block
+
+.footer__menu a:hover
+    color $color-primary
+    transform translateX(5px)
+
+.footer__contacts
+    /* assumes reset-list() logic is applied */
+
+.footer__contacts li
+    margin-bottom $spacing-md
+    font-size $font-size-sm
+    color rgba(255, 255, 255, 0.7)
+    line-height 1.6
+
+.footer__contacts li strong
+    color $color-light
+    display block
+    margin-bottom $spacing-xs
+
+.footer__contacts li a
+    color $color-primary
+    text-decoration none
+    transition $transition-fast
+
+.footer__contacts li a:hover
+    color $color-accent
+    text-decoration underline
+
+.footer__bottom
+    display flex
+    justify-content space-between
+    align-items center
+    padding-top $spacing-lg
+
+.footer__copyright
+    font-size $font-size-sm
+    color rgba(255, 255, 255, 0.6)
+
+.footer__links
+    display flex
+    gap $spacing-lg
+
+.footer__links a
+    font-size $font-size-sm
+    color rgba(255, 255, 255, 0.6)
+    text-decoration none
+    transition $transition-fast
+
+.footer__links a:hover
+    color $color-primary
+
+/* ------------------------------------------------------------------- */
+/* Адаптация (Медиа-запросы) */
+/* ------------------------------------------------------------------- */
+
+@media (max-width $breakpoint-lg)
+    .footer__content
+        grid-template-columns repeat(2, 1fr)
+
+    .footer__column:first-child
+        grid-column 1 / -1
+
+@media (max-width $breakpoint-md)
+    .footer__content
+        grid-template-columns 1fr
+        gap $spacing-lg
+
+    .footer__bottom
+        flex-direction column
+        gap $spacing-md
+        text-align center
+
+    .footer__links
+        flex-direction column
+        gap $spacing-sm

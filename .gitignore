@@ -1,0 +1,20 @@
+# 1. Игнорируем всё в корне
+/*
+!.gitignore
+!/src/
+!/public_html/
+
+# 2. Внутри public_html игнорируем всё, кроме wp-content
+/public_html/*
+!/public_html/wp-content/
+
+# 3. Внутри wp-content игнорируем всё, кроме themes
+/public_html/wp-content/*
+!/public_html/wp-content/themes/
+
+# 4. Внутри themes игнорируем всё, кроме static_site
+/public_html/wp-content/themes/*
+!/public_html/wp-content/themes/static_site/
+
+# 5. Игнорируем node_modules на любом уровне
+node_modules/

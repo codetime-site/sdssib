@@ -1,0 +1,219 @@
+.equipment {
+    background: #222222;
+    color: #f0f0f0;
+}
+
+.equipment .section-title {
+    color: #f0f0f0;
+}
+
+.equipment .section-title::after {
+    background: #ff4500;
+}
+
+.equipment__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 120px;
+}
+
+/* Медиа-запросы (вложения) удалены или вынесены отдельно в оригинальном CSS */
+
+.equipment__card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(220, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.equipment__card:hover {
+    transform: translateY(-10px);
+    border-color: #ff4500;
+    box-shadow: 0 10px 30px rgba(220, 0, 0, 0.3);
+}
+
+.equipment__card-image {
+    position: relative;
+    /* aspect-ratio(16, 9) заменено на фиксированный паддинг для сохранения пропорций */
+    padding-top: 56.25%; 
+    height: 0; 
+    overflow: hidden;
+}
+
+.equipment__card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.equipment__card-image:hover img {
+    transform: scale(1.1);
+}
+
+.equipment__card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+}
+
+.equipment__card-badge {
+    background: #ff4500;
+    color: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.equipment__card-content {
+    padding: 24px;
+}
+
+.equipment__card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 16px;
+}
+
+.equipment__card-specs {
+    /* reset-list() миксин удален, добавлены базовые стили сброса */
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px 0;
+}
+
+.equipment__card-specs li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 8px;
+    font-size: 0.875rem;
+    color: #aaaaaa;
+}
+
+.equipment__card-specs li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #ff4500;
+}
+
+.equipment__card-desc {
+    font-size: 0.875rem;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+.equipment__materials {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(220, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 120px;
+    text-align: center;
+}
+
+.equipment__materials-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 40px;
+}
+
+.equipment__materials-list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    
+    gap: 24px;
+}
+
+/* Медиа-запросы (вложения) удалены или вынесены отдельно в оригинальном CSS */
+
+.equipment__material {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.equipment__material:hover {
+    background: rgba(220, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.equipment__material-icon {
+    font-size: 2rem;
+}
+
+.equipment__material-name {
+    font-size: 0.875rem;
+    color: #aaaaaa;
+    font-weight: 500;
+}
+
+.equipment__cta {
+    text-align: center;
+    padding: 120px 32px;
+    background: linear-gradient(135deg, rgba(220, 0, 0, 0.1) 0%, rgba(10, 10, 10, 0.5) 100%);
+    border-radius: 8px;
+    border: 1px solid rgba(220, 0, 0, 0.3);
+}
+
+.equipment__cta-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 16px;
+}
+
+/* Медиа-запросы (вложения) удалены или вынесены отдельно в оригинальном CSS */
+
+.equipment__cta-text {
+    font-size: 1.125rem;
+    color: #aaaaaa;
+    margin-bottom: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Медиа-запросы (вложения) удалены или вынесены отдельно в оригинальном CSS */
+
+.equipment__card {
+    opacity: 0;
+}
+
+.equipment__card.animated {
+    opacity: 1;
+    /* slide-up(0.6s) миксин удален, анимация должна быть определена отдельно */
+}
+
+.equipment__card:nth-child(2).animated {
+    /* animation-delay: 0.2s */
+}
+
+.equipment__card:nth-child(3).animated {
+    /* animation-delay: 0.4s */
+}
++below(782px)
+    .equipment__materials-list 
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr) )
+    
+    .equipment__grid 
+        grid-template-columns: repeat(auto-fit, minmax(365px, 1fr));
