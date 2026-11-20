@@ -1,122 +1,44 @@
-<section class="gallery section" id="gallery">
+<?php
+$title = esc_html(get_sub_field("title") ?? " Заголовок не добавлен.");
+$repeater = "win";
+?>
+
+<section class="equipment section bg-dark" id="equipment">
     <div class="container">
-        <h2 class="section-title">Наши изделия</h2>
-        
-        <div class="gallery__grid">
-            <div class="gallery__item">
-                <div class="gallery__item-image">
-                    <img src="assets/img/product-1.jpg" alt="Деталь 1" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <div class="gallery__item-content">
-                            <h3 class="gallery__item-title">Вал приводной</h3>
-                            <p class="gallery__item-desc">Токарная обработка, сталь 45</p>
-                            <div class="gallery__item-specs">
-                                <span>Ø80×300 мм</span>
-                                <span>Точность: 0.01 мм</span>
+        <h2 class="section-title text-white"> <?php echo $title; ?> </h2>
+
+        <div class="equipment__grid">
+
+            <?php if (have_rows($repeater)):
+                while (have_rows($repeater)):
+                    the_row();
+                    $win_img = get_sub_field("img") ? esc_url(get_sub_field("img")) : get_template_directory_uri() . "/assets/img/about-cnc.jpg";
+                    $win_btn = esc_html(get_sub_field("btn"));
+                    $win_title = esc_html(get_sub_field("title") ?? "Заголовок не добавлен.");
+                    $win_sub_title = wp_kses_post( get_sub_field("sub_title") ?? "Под заголовок не добавлен.");
+                    ?>
+
+                    <div class="equipment__card">
+
+                        <?php if ($win_img): ?>
+                            <div class="equipment__card-image">
+                                <img src="<?= $win_img; ?>" alt="Токарный станок с ЧПУ" loading="lazy">
+                                <div class="equipment__card-overlay">
+                                    <span class="equipment__card-badge">Токарная обработка</span>
+                                </div>
                             </div>
+                        <?php endif; ?>
+
+                        <div class="equipment__card-content">
+                            <?php if ($win_title): ?>
+                                <h3 class="equipment__card-title"> <?= $win_title; ?></h3>
+                            <?php endif; ?>
+                            <?= $win_sub_title; ?>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="gallery__item">
-                <div class="gallery__item-image">
-                    <img src="assets/img/product-2.jpg" alt="Деталь 2" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <div class="gallery__item-content">
-                            <h3 class="gallery__item-title">Корпус редуктора</h3>
-                            <p class="gallery__item-desc">Фрезерная обработка, алюминий</p>
-                            <div class="gallery__item-specs">
-                                <span>200×150×100 мм</span>
-                                <span>5-осевая обработка</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="gallery__item">
-                <div class="gallery__item-image">
-                    <img src="assets/img/product-3.jpg" alt="Деталь 3" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <div class="gallery__item-content">
-                            <h3 class="gallery__item-title">Фланец соединительный</h3>
-                            <p class="gallery__item-desc">Токарная обработка, нержавейка</p>
-                            <div class="gallery__item-specs">
-                                <span>Ø150×30 мм</span>
-                                <span>Серийное производство</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="gallery__item">
-                <div class="gallery__item-image">
-                    <img src="assets/img/product-4.jpg" alt="Деталь 4" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <div class="gallery__item-content">
-                            <h3 class="gallery__item-title">Втулка подшипника</h3>
-                            <p class="gallery__item-desc">Токарная обработка, бронза</p>
-                            <div class="gallery__item-specs">
-                                <span>Ø60×80 мм</span>
-                                <span>Внутренняя резьба</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="gallery__item">
-                <div class="gallery__item-image">
-                    <img src="assets/img/product-5.jpg" alt="Деталь 5" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <div class="gallery__item-content">
-                            <h3 class="gallery__item-title">Крышка механизма</h3>
-                            <p class="gallery__item-desc">Фрезерная обработка, сталь</p>
-                            <div class="gallery__item-specs">
-                                <span>180×120×25 мм</span>
-                                <span>Сложная геометрия</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="gallery__item">
-                <div class="gallery__item-image">
-                    <img src="assets/img/product-6.jpg" alt="Деталь 6" loading="lazy">
-                    <div class="gallery__item-overlay">
-                        <div class="gallery__item-content">
-                            <h3 class="gallery__item-title">Шестерня зубчатая</h3>
-                            <p class="gallery__item-desc">Комплексная обработка, сталь 40Х</p>
-                            <div class="gallery__item-specs">
-                                <span>Ø100×40 мм</span>
-                                <span>Модуль 2.5</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <?php endwhile; endif; ?>
         </div>
-        
-        <div class="gallery__slider-controls">
-            <button class="gallery__slider-btn gallery__slider-btn--prev" aria-label="Предыдущий слайд">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2"/>
-                </svg>
-            </button>
-            <div class="gallery__slider-dots"></div>
-            <button class="gallery__slider-btn gallery__slider-btn--next" aria-label="Следующий слайд">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2"/>
-                </svg>
-            </button>
-        </div>
-        
-        <div class="gallery__cta">
-            <p class="gallery__cta-text">Хотите увидеть больше примеров наших работ?</p>
-            <a href="#contacts" class="btn btn-primary">Связаться с нами</a>
-        </div>
+
+  
     </div>
 </section>

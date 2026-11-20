@@ -1,4 +1,5 @@
-<?php while (have_rows("flex_page")): the_row(); ?>
+<?php while (have_rows("flex_page")):the_row(); ?>
+
     <?php if (get_row_layout() == "hero"): ?>
         <?php get_template_part("templates/hero"); ?>
 
@@ -19,9 +20,6 @@
 
     <?php elseif (get_row_layout() === "our_products"): ?>
         <?php get_template_part("templates/our_products"); ?>
-
-    <?php elseif (get_row_layout() === "our_machine"): ?>
-        <?php get_template_part("templates/our_machine"); ?>
 
     <?php elseif (get_row_layout() === "form_rec"): ?>
         <?php get_template_part("templates/form_rec"); ?>
