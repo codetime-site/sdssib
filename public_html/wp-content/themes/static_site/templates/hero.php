@@ -1,11 +1,9 @@
-<?php
-$var = codetime_get_variables(['title', 'sub_title']);
+<?php $var = codetime_get_variables(['title', 'sub_title']); ?>
+<pre> <?php print_r(get_fields()); ?> </pre>
 
-?>
 <section class="hero" id="hero">
     <div class="hero__overlay"></div>
     <div class="hero__background">
-        <!-- Background image or video can be added here -->
     </div>
 
     <div class="container">
@@ -20,12 +18,11 @@ $var = codetime_get_variables(['title', 'sub_title']);
 
             <div class="hero__actions">
                 <?php if (have_rows('btns')):
-                    while (have_rows('button')): the_row();
-                        $btn = codetime_get_variables(['btn', 'link', 'clrs']); 
+                    while (have_rows('button')):
+                        the_row();
+                        $btn = codetime_get_variables(['btn', 'link', 'clrs']);
                         $btn['clrs'] = $btn['clrs'] ? "outline" : "primary"; ?>
-
-                        <a href="<?= esc_url($btn['link']); ?>" 
-                            class="btn btn-lg btn-<?= esc_attr($btn['clrs']); ?> ">
+                        <a href="<?= esc_url($btn['link']); ?>" class="btn btn-lg btn-<?= esc_attr($btn['clrs']); ?> ">
                             <?= esc_html($btn['btn']); ?>
                         </a>
 
@@ -34,44 +31,30 @@ $var = codetime_get_variables(['title', 'sub_title']);
             </div>
 
             <div class="hero__features">
-                <div class="hero__feature">
-                    <div class="hero__feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M20 5L25 15H35L27.5 22.5L30 32.5L20 25L10 32.5L12.5 22.5L5 15H15L20 5Z"
-                                stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="hero__feature-text">
-                        <div class="hero__feature-title">Точность 0.01 мм</div>
-                        <div class="hero__feature-desc">Высокоточное оборудование</div>
-                    </div>
-                </div>
 
-                <div class="hero__feature">
-                    <div class="hero__feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <circle cx="20" cy="20" r="15" stroke="currentColor" stroke-width="2" />
-                            <path d="M20 10V20L27 27" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="hero__feature-text">
-                        <div class="hero__feature-title">Сроки от 1 дня</div>
-                        <div class="hero__feature-desc">Оперативное изготовление</div>
-                    </div>
-                </div>
 
-                <div class="hero__feature">
-                    <div class="hero__feature-icon">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                            <path d="M10 20L17 27L30 13" stroke="currentColor" stroke-width="2" />
-                            <circle cx="20" cy="20" r="15" stroke="currentColor" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <div class="hero__feature-text">
-                        <div class="hero__feature-title">Скидка до 15%</div>
-                        <div class="hero__feature-desc">При заказе от 10 деталей</div>
-                    </div>
-                </div>
+                <?php if (have_rows('Features')):
+                    while (have_rows('Features')): the_row();
+                        $rep = codetime_get_variables('icon', 'title', 'sub_title');
+                        ?>
+                        <div class="hero__feature">
+                            <?php if (!empty($rep['icon'])): ?>
+                                <div class="hero__feature-icon">
+                                    <i><?php echo $rep['icon'] ?></i>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <div class="hero__feature-text">
+                                <?php if (!empty($rep['title'])): ?>
+                                    <div class="hero__feature-title"><?= $rep['title'] ?></div>
+                                <?php endif; ?>
+                                <?php if (!empty($rep['sub_title'])): ?>
+                                    <div class="hero__feature-desc"><?= $rep['sub_title'] ?></div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endwhile;
+                endif; ?>
             </div>
         </div>
     </div>
