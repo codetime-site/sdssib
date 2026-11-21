@@ -15,6 +15,9 @@
     <?php elseif (get_row_layout() === "galary"): ?>
         <?php get_template_part("templates/galary"); ?>
 
+        <?php elseif (get_row_layout() === "banner_test"): ?>
+        <?php get_template_part("templates/banner"); ?>
+
     <?php elseif (get_row_layout() === "materials"): ?>
         <?php get_template_part("templates/materials"); ?>
 
