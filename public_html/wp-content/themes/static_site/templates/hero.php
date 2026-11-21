@@ -1,5 +1,4 @@
-<?php $var = codetime_get_variables(['title', 'sub_title']); ?>
-<pre> <?php print_r(get_fields()); ?> </pre>
+<?php  $var = codetime_get_variables(['title', 'sub_title']); ?>
 
 <section class="hero" id="hero">
     <div class="hero__overlay"></div>
@@ -56,16 +55,17 @@
                     <?php endwhile; endif; ?>
             </div>
         </div>
-        <div cla ss="hero__scroll">
-            <a h ref="#about" class="hero__scroll-link">
-                <spa n>Прокрутите вниз</span>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" />
-                    </svg>
+
+        <div class="hero__scroll">
+            <a href="#about" class="hero__scroll-link">
+                <span>Прокрутите вниз</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5V19M12 19L5 12M12 19L19 12" stroke="currentColor" stroke-width="2" />
+                </svg>
             </a>
         </div>
     </div>
 
 
-    <?php //if (get_sub_field("banner_on")) { get_template_part('templates/banner'); } ?>
+    <?php if (get_sub_field("banner_on")) { get_template_part('templates/banner'); } ?>
 </section>

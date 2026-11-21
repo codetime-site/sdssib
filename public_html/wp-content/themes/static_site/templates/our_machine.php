@@ -1,6 +1,10 @@
 <?php $title = esc_html(get_sub_field("title") ?? " Заголовок не добавлен.");
-$repeater = "win"; ?>
+$repeater = "win";
 
+?>
+<pre>
+    <?php print_r(get_fields()); ?>
+</pre>
 <section class="equipment section bg-dark" id="equipment">
     <div class="container">
         <?php if ($title): ?>
@@ -9,7 +13,8 @@ $repeater = "win"; ?>
         <div class="equipment__grid">
 
             <?php if (have_rows($repeater)):
-                while (have_rows($repeater)): the_row();
+                while (have_rows($repeater)):
+                    the_row();
                     $win_img = get_sub_field("img") ? esc_url(get_sub_field("img")) : get_template_directory_uri() . "/assets/img/about-cnc.jpg";
                     $win_btn = esc_html(get_sub_field("btn"));
                     $win_title = esc_html(get_sub_field("title") ?? "Заголовок не добавлен.");
@@ -34,7 +39,31 @@ $repeater = "win"; ?>
                             <?= $win_sub_title; ?>
                         </div>
                     </div>
-                <?php endwhile; endif; ?>
+                <?php endwhile;
+            endif; ?>
+        </div>
+
+        <?php if (have_rows("win_btns")): ?>
+            <div class="equipment__materials">
+                <h3 class="equipment__materials-title">Материалы для обработки</h3>
+                <div class="equipment__materials-list">
+                    <?php while (have_rows("win_btns")): the_row();
+                        $icons = get_sub_field("icon_materials");
+                        $icons_title = get_sub_field("title_materials");
+                        ?>
+
+                        <div class="equipment__material">
+                            <?php if($icons):?>
+                                <span class="equipment__material-icon"><?= $icons;?></span>
+                            <?php endif;?>
+                            <?php if($icons_title):?>
+                                <span class="equipment__material-name"><?= $icons_title;?></span>
+                            <?php endif;?>
+                        </div>
+
+                    <?php endwhile; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>
