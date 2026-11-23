@@ -10,8 +10,7 @@ $repeater = "win";
         <div class="equipment__grid">
 
             <?php if (have_rows($repeater)):
-                while (have_rows($repeater)):
-                    the_row();
+                while (have_rows($repeater)): the_row();
                     $win_img = get_sub_field("img") ? esc_url(get_sub_field("img")) : get_template_directory_uri() . "/assets/img/about-cnc.jpg";
                     $win_btn = esc_html(get_sub_field("btn"));
                     $win_title = esc_html(get_sub_field("title") ?? "Заголовок не добавлен.");

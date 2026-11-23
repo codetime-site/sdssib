@@ -1,5 +1,5 @@
 <?php
-get_template_part('inc/variables');
+// get_template_part('inc/variables');
 $var = codetime_get_variables(['title', 'sub_title', 'sub_subs', 'img', 'img_title']);
 ?>
 

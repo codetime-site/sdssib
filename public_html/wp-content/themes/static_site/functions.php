@@ -1,13 +1,14 @@
 <?php
 
 add_action('wp_enqueue_scripts', 'codetime_scripts');
-
 function codetime_scripts()
 {
+    $styles = ['styles', 'scripts'];
     // Подключение стили
-    locate_template(["inc/styles.php"], true, true);
+    foreach ($styles as $style) {
+        locate_template(["inc/" . $style . ".php"], true, true);
+    }
     // Подключение скриптов
-    locate_template(["inc/scripts.php"], true, true);
 
     // проверка 
     // 2. Объявляем строку с JS-кодом внутри функции
@@ -17,10 +18,12 @@ function codetime_scripts()
 
 }
 
-function codetime_setup(){
-    locate_template(["inc/acf.php"], true, true);
-    // locate_template(["inc/variables.php"], true, true);
-    
+function codetime_setup()
+{
+    $styles = ['acf', 'variables'];
+    foreach ($styles as $style) {
+        locate_template(["inc/" . $style . ".php"], true, true);
+    }
 }
 add_action('after_setup_theme', 'codetime_setup');
 

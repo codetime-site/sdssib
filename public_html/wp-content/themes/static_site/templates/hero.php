@@ -1,4 +1,6 @@
-<?php  $var = codetime_get_variables(['title', 'sub_title']); ?>
+<?php 
+// get_template_part('inc/variables');
+$var = codetime_get_variables(['title', 'sub_title']); ?>
 
 <section class="hero" id="hero">
     <div class="hero__overlay"></div>
@@ -17,8 +19,7 @@
 
             <div class="hero__actions">
                 <?php if (have_rows('btns')):
-                    while (have_rows('btns')):
-                        the_row();
+                    while (have_rows('btns')): the_row();
                         $btn = codetime_get_variables(['btn', 'link', 'clrs']);
                         $btn['clrs'] = $btn['clrs'] ? "outline" : "primary"; ?>
 
@@ -30,29 +31,9 @@
             </div>
 
             <div class="hero__features">
-                <?php if (have_rows('Features')):
-                    while (have_rows('Features')):
-                        the_row();
-                        $rep = codetime_get_variables(['icon', 'title', 'sub_title']); ?>
-                        <div class="hero__feature">
-
-                            <?php if (!empty($rep['icon'])): ?>
-                                <div class="hero__feature-icon"><i><?= $rep['icon'] ?></i> </div>
-                            <?php endif; ?>
-
-                            <div class="hero__feature-text">
-
-                                <?php if (!empty($rep['title'])): ?>
-                                    <div class="hero__feature-title"><?= esc_html($rep['title']) ?></div>
-                                <?php endif; ?>
-
-                                <?php if (!empty($rep['sub_title'])): ?>
-                                    <div class="hero__feature-desc"><?= esc_html($rep['sub_title']) ?></div>
-                                <?php endif; ?>
-
-                            </div>
-                        </div>
-                    <?php endwhile; endif; ?>
+                <?php if (have_rows('Features')): ?>
+                    <?php get_template_part( "/part/repeater", null, "Features" );?>
+                <?php endif; ?>
             </div>
         </div>
 
@@ -65,7 +46,4 @@
             </a>
         </div>
     </div>
-
-
-    <?php if (get_sub_field("banner_on")) { get_template_part('templates/banner'); } ?>
 </section>

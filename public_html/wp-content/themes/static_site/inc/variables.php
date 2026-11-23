@@ -1,8 +1,4 @@
-<?php 
-
-
-
-function codetime_get_variables($fields)
+<?php function codetime_get_variables($fields)
 {
     $variables = [];
     foreach ($fields as $key) {
@@ -12,8 +8,9 @@ function codetime_get_variables($fields)
 }
 
 
-function codetime_esc_attr($field_name) {
-    return esc_attr( $field_name ?: "Значение не добавлено");
+function codetime_esc_attr($field_name)
+{
+    return esc_attr($field_name ?: "Значение не добавлено");
 }
 
 
@@ -29,7 +26,7 @@ function codetime_get_variables() {
 */
 
 // function codetime_sub_get_variables() {
-    
+
 //     $title = get_sub_field('title');
 //     $sub_title = esc_html(get_sub_field('sub_title') ?: "Заголовок не добавлен");
 //     $icon = wp_kses_post(get_sub_field('icon') ?: "");
