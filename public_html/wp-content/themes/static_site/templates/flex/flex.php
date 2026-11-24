@@ -2,6 +2,7 @@
 
     <?php if (get_row_layout() == "hero"): ?>
         <?php get_template_part("templates/hero"); ?>
+        <?php get_template_part("templates/maps"); ?>
 
     <?php elseif (get_row_layout() === "about"): ?>
         <?php get_template_part("templates/about"); ?>
