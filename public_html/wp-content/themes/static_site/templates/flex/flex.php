@@ -2,10 +2,12 @@
 
     <?php if (get_row_layout() == "hero"): ?>
         <?php get_template_part("templates/hero"); ?>
-        <?php get_template_part("templates/maps"); ?>
+        <?php //get_template_part("templates/maps"); ?>
 
     <?php elseif (get_row_layout() === "about"): ?>
         <?php get_template_part("templates/about"); ?>
+        <?php get_template_part("templates/contacts"); ?>
+        <?php get_template_part("templates/work_example.php"); ?>
 
     <?php elseif (get_row_layout() === "contacts"): ?>
         <?php get_template_part("templates/contacts"); ?>
