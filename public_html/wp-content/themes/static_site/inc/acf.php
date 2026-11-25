@@ -1,18 +1,16 @@
-<?php
-// для безопасности, чтобы не было прямого доступа к файлу
-function get_acf_field($field_name)
+<?php function codetime_get_variables($fields)
 {
-    if (function_exists('get_sub_field')) {
-        return get_sub_field($field_name);
+    $variables = [];
+    foreach ($fields as $key) {
+        $variables[$key] = get_sub_field($key);
     }
-    return 'добавьте значение для поля ';
+    return $variables;
 }
 
-// получение безопасного Html заголовку
-function my_esc_html($esc_html){
-     return esc_html( get_sub_field($esc_html) ?: "Заголовок пусто");
+
+function codetime_esc_attr($field_name)
+{
+    return esc_attr($field_name ?: "Значение не добавлено");
 }
 
-// укорачивать функции
-// function gsf($field){ return get_sub_field($field); }
 

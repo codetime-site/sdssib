@@ -1,30 +1,20 @@
 <?php
+function codetime_func()
+{
+    locate_template(array('inc/acf.php'), true, true); // acf functions get_sub_filed()
+    locate_template(array('inc/register_menu.php'), true, true); //register munu self
+    locate_template(array('inc/acf_setting_page.php'), true, true); //for opinons notifications
+}
+add_action('after_setup_theme', 'codetime_func');
 
-add_action('wp_enqueue_scripts', 'codetime_scripts');
 function codetime_scripts()
 {
-    $styles = ['styles', 'scripts'];
-    // Подключение стили
-    foreach ($styles as $style) {
-        locate_template(["inc/" . $style . ".php"], true, true);
-    }
-    // Подключение скриптов
-
-    // проверка 
-    // 2. Объявляем строку с JS-кодом внутри функции
-    $custom_js = "console.log('Скрипт успешно работает!');";
-    // 3. Привязываем инлайновый JS к первому скрипту (my_main_js)
-    wp_add_inline_script("my_main_js", $custom_js);
-
+    locate_template(array('inc/styles.php'), true, true); // Подключение стили
+    locate_template(array('inc/scripts.php'), true, true); // Подключение скриптов   
 }
 
-function codetime_setup()
-{
-    $styles = ['acf', 'variables'];
-    foreach ($styles as $style) {
-        locate_template(["inc/" . $style . ".php"], true, true);
-    }
-}
-add_action('after_setup_theme', 'codetime_setup');
+add_action('wp_enqueue_scripts', 'codetime_scripts');
+
+
 
 
