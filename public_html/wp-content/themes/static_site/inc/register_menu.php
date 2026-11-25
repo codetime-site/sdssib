@@ -1,25 +1,7 @@
 <?php
-// function codetime_register_menu() {
-    
-    // возможность изменять фон из админки
-	add_theme_support( 'custom-background' );
-
-	// возможность изменять изображения в шапке из админки
-	add_theme_support( 'custom-header' );
-
-	// включаем меню в админке
-	add_theme_support( 'menus' );
-
-	// создание метатега <title> через хук
-	add_theme_support( 'title-tag' );
-
-	// возможность загрузить картинку логотипа в админке
-	add_theme_support( 'custom-logo', [
-		'height'      => 190,
-		'width'       => 190,
-		'flex-width'  => false,
-		'flex-height' => false,
-		'header-text' => '',
-	] );
-// }
-
+function codetime_reg_menu(){
+	register_nav_menu('main', 'Главный меню');
+	register_nav_menu('footer', 'Подвал меню');
+	register_nav_menu('mobile', 'Мобилный меню');
+}
+add_action('init', 'codetime_reg_menu');

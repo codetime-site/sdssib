@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 // 1. Подключаем файл стилей (CSS) — «одежду» сайта
 wp_enqueue_style('my_main_styles', get_stylesheet_uri(), array(), '1.0.0');
 // 1.2. Подключаем файл стилей (favicon.ico) сайта
