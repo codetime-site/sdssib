@@ -44,6 +44,7 @@
     $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
     ?>
 
+
     <header class="header" id="header">
         <div class="container">
             <div class="header__inner">
@@ -53,25 +54,15 @@
                     </a>
                 </div>
 
-                <nav class="header__nav">
-                    <ul class="nav-menu">
-                        <li class="nav-menu__item">
-                            <a href="#hero" class="nav-menu__link">Главная</a>
-                        </li>
-                        <li class="nav-menu__item">
-                            <a href="#about" class="nav-menu__link">О компании</a>
-                        </li>
-                        <li class="nav-menu__item">
-                            <a href="#equipment" class="nav-menu__link">Оборудование</a>
-                        </li>
-                        <li class="nav-menu__item">
-                            <a href="#gallery" class="nav-menu__link">Наши изделия</a>
-                        </li>
-                        <li class="nav-menu__item">
-                            <a href="#contacts" class="nav-menu__link">Контакты</a>
-                        </li>
-                    </ul>
-                </nav>
+                <?php $args = [
+                    'theme_location' => 'main',
+                    'container' => 'nav',
+                    'container_class' => 'header__nav',
+                    'menu_class' => 'nav-menu',
+                    'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                ]; ?>
+
+                <?php wp_nav_menu($args); ?>
 
                 <div class="header__actions">
                     <a href="tel:+7(913) 788-88-86" class="header__phone">+7(913) 788-88-86</a>
