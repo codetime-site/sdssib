@@ -92,13 +92,22 @@ $logo_url = wp_get_attachment_image_url(get_theme_mod('custom_logo'), 'full');
 
         <div class="footer__bottom">
             <p class="footer__copyright">
-                © 2024 CNC Machining. Все права защищены.
+                © <?php echo date('Y'); ?> sdsib. Все права защищены.
             </p>
-            <div class="footer__links">
-                <a href="#">Политика конфиденциальности</a>
-                <a href="#">Пользовательское соглашение</a>
-            </div>
+
+
+            <?php $menu_items = get_cached_menu_items('footer_under'); ?>
+            <?php if ($menu_items): ?>
+                <div class="footer__links">
+                    <?php foreach ($menu_items as $item): ?>
+                        <a href="<?php echo esc_url($item->url); ?>">
+                            <?php echo esc_html($item->title); ?>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
         </div>
+    </div>
     </div>
 </footer>
 <?php wp_footer(); ?>

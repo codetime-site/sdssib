@@ -1,23 +1,23 @@
 <?php
-// 1. Получаем все зарегистрированные области меню
-$locations = get_nav_menu_locations();
+echo "hello";
 
-// 2. Проверяем, привязано ли меню к области 'main'
-if (isset($locations['main'])) {
-    // Получаем массив всех пунктов этого меню
-    $menu_items = wp_get_nav_menu_items($locations['main']); 
 
-    // 3. Теперь у тебя есть чистый список (массив) $menu_items!
-    // Выводим его как угодно через обычный foreach:
-    if ($menu_items): ?>
-        <ul class="footer__menu">
-            <?php foreach ($menu_items as $item): ?>
-                <li>
-                    <a href="<?php echo esc_url($item->url); ?>">
-                        <?php echo esc_html($item->title); ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+/*
+$menu_items = get_cached_menu_items($args); ?>
+<?php if ($menu_items):
+    if ($menu_items === "main"): ?>
+        <nav class="header__nav">
+            <ul class="nav-menu">
+                <?php foreach ($menu_items as $item): ?>
+                    <li class="nav-menu__item">
+                        <a href="<?php echo esc_url($item->url); ?>" class="nav-menu__link">
+                            <?php echo esc_html($item->title); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </nav>
     <?php endif;
-}
+endif; ?>
+
+*/
